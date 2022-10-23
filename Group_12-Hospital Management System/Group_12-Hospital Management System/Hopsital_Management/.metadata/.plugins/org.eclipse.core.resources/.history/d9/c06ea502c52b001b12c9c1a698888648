@@ -1,0 +1,74 @@
+package Adminsitration;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import Second_Window.Second_Window;
+import Frame.Frame_Create;
+
+public class Admin implements ActionListener{
+    Frame_Create frame;
+    JButton b1;
+    JButton b2;
+    JButton b3;
+    JButton b4;
+    public Admin() {
+       b1=new JButton();
+   	   b2=new JButton();
+   	   b3=new JButton();
+   	   b4=new JButton();
+   	   Icon i=new ImageIcon(getClass().getResource("/Image/back.jpg"));
+   	   b1.setBounds(122,40,150,40);
+   	   b1.setText("Deletion of Records");
+   	   b1.setFocusable(false);
+   	   b1.addActionListener(this);
+   	   b2.setBounds(122,95,150,40);
+   	   b2.setText("Assign Duties");
+   	   b2.setFocusable(false);
+   	   b2.addActionListener(this);
+   	   //b4.setBounds(122,150,150,40);
+   	   //b4.setText("Assing Duties");
+   	   //b4.setFocusable(false);
+   	   //b4.addActionListener(this);
+   	   b3.setIcon(i);
+   	   b3.setFocusable(false);
+   	   //b5.setForeground(Color.cyan);
+   	   b3.setBounds(0, 0, 40, 40);
+   	   b3.setBorderPainted(false);
+   	   //b5.setBackground(Color.BLACK);
+   	   b3.addActionListener(this);
+   	   frame=new Frame_Create();
+   	   frame.setSize(400,270);
+   	   frame.add(b1);
+   	   frame.add(b2);
+   	   frame.add(b3);
+   	   //frame.add(b4);
+   	   frame.setVisible(true);
+    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==b1) {
+			frame.dispose();
+			Deletion d=new Deletion();
+		}
+		else if(e.getSource()==b2) {
+			frame.dispose();
+			Request r=new Request();
+		}
+		else if(e.getSource()==b3) {
+			frame.dispose();
+			Second_Window s=new Second_Window();
+		}
+		else if(e.getSource()==b4) {
+			frame.dispose();
+			Assign_D d=new Assign_D();
+		}
+	}
+	public static void main(String [] args) {
+		Admin ad=new Admin();
+	}
+}
